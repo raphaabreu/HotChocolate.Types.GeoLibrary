@@ -11,11 +11,15 @@ namespace HotChocolate.Types.GeoLibrary
     /// </summary>
     public class GeoPointType : ScalarType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeoPointType"/> class.
+        /// </summary>
         public GeoPointType() : base("GeoPoint")
         {
             Description = "The `GeoPoint` scalar type represents coordinates as an array of doubles where the first element is the longitude and the second is the latitude.";
         }
 
+        /// <inheritdoc />
         public override bool IsInstanceOfType(IValueNode literal)
         {
             if (literal == null)
@@ -31,6 +35,7 @@ namespace HotChocolate.Types.GeoLibrary
             return literal is ListValueNode list && list.Items.Count == 2 && list.Items.All(item => item is FloatValueNode || item is IntValueNode);
         }
 
+        /// <inheritdoc />
         public override object ParseLiteral(IValueNode literal)
         {
             if (literal == null)
@@ -56,6 +61,7 @@ namespace HotChocolate.Types.GeoLibrary
                 nameof(literal));
         }
 
+        /// <inheritdoc />
         public override IValueNode ParseValue(object value)
         {
             if (value == null)
@@ -72,6 +78,7 @@ namespace HotChocolate.Types.GeoLibrary
                 "The specified value has to be Point in order to be parsed by the GeoPointType.");
         }
 
+        /// <inheritdoc />
         public override object Serialize(object value)
         {
             if (value == null)
@@ -88,6 +95,7 @@ namespace HotChocolate.Types.GeoLibrary
                 "The specified value cannot be serialized by the GeoPointType.");
         }
 
+        /// <inheritdoc />
         public override bool TryDeserialize(object serialized, out object value)
         {
             if (serialized is null)
@@ -106,6 +114,7 @@ namespace HotChocolate.Types.GeoLibrary
             return false;
         }
 
+        /// <inheritdoc />
         public override Type ClrType => typeof(Point);
     }
 }

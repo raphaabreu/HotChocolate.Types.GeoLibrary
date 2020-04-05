@@ -11,12 +11,16 @@ namespace HotChocolate.Types.GeoLibrary
     /// </summary>
     public class GeoPolygonType : ScalarType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeoPolygonType"/> class.
+        /// </summary>
         public GeoPolygonType() : base("GeoPolygon")
         {
             Description =
                 "The `GeoPolygon` scalar type represents polygons as an array of line strings where each line string contains points as an array of longitude/latitude pairs.";
         }
 
+        /// <inheritdoc />
         public override bool IsInstanceOfType(IValueNode literal)
         {
             if (literal == null)
@@ -35,6 +39,7 @@ namespace HotChocolate.Types.GeoLibrary
                                                                         subitemList.Items.Count == 2));
         }
 
+        /// <inheritdoc />
         public override object ParseLiteral(IValueNode literal)
         {
             if (literal == null)
@@ -75,6 +80,7 @@ namespace HotChocolate.Types.GeoLibrary
                 nameof(literal));
         }
 
+        /// <inheritdoc />
         public override IValueNode ParseValue(object value)
         {
             if (value == null)
@@ -95,6 +101,7 @@ namespace HotChocolate.Types.GeoLibrary
                 "The specified value cannot be parsed to GeoPolygon.");
         }
 
+        /// <inheritdoc />
         public override object Serialize(object value)
         {
             if (value == null)
@@ -114,6 +121,7 @@ namespace HotChocolate.Types.GeoLibrary
                 "The specified value cannot be serialized by the GeoPolygon.");
         }
 
+        /// <inheritdoc />
         public override bool TryDeserialize(object serialized, out object value)
         {
             if (serialized is null)
@@ -138,6 +146,7 @@ namespace HotChocolate.Types.GeoLibrary
             return false;
         }
 
+        /// <inheritdoc />
         public override Type ClrType => typeof(Polygon);
     }
 }
