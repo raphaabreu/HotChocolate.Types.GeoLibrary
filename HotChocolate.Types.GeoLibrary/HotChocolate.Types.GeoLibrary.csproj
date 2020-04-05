@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>HotChocolate</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Raphael Lorenzeto de Abreu</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>Simple extension to the original HotChocolate Type system to include Point and Polygon types from GeoLibrary.</Description>
+    <RepositoryUrl>https://github.com/raphaabreu/HotChocolate.Types.GeoLibrary</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageProjectUrl>https://github.com/raphaabreu/HotChocolate.Types.GeoLibrary</PackageProjectUrl>
+    <PackageTags>hotchocolate custom scalars geolibrary coordinates point polygon geopoint geopolygon latitude longitude</PackageTags>
+    <Copyright>MIT</Copyright>
+    <Version>10.3.5</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GeoLibrary" Version="1.0.2" />
+    <PackageReference Include="HotChocolate.Types" Version="10.3.5" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Types.GeoLibrary\" />
+  </ItemGroup>
+
+</Project>
